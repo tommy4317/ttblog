@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Edit Blog</title>
+    <th:block th:replace="/fragments/styling :: head-style" ></th:block>    
+  </head>
+  <body>		
+  	<div class="container">
+  		<div th:replace="fragments/navbar :: navbar"></div>	
+	  	<h1>Edit Post</h1>
+		<form action="#" th:action="@{/blogposts/update/{id}(id=${blogPost.id})}" th:object="${blogPost}" method="post">
+			<div class="form-group">
+				<input type="text" class="form-control" th:field="*{title}" />			
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" th:field="*{author}" />			
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" th:field="*{blogEntry}" />			
+			</div>
+			<button class="btn btn-primary">Submit Your Edit</button>												
+		</form>
+  	</div>
+  	<div th:replace="/fragments/styling :: body-links"></div>    
+  </body>
+</html>
